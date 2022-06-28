@@ -2,8 +2,8 @@
 echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
 $isPresent=1;
 $Employee_Wage_PerHour=20;
-$empHrs=0;
 $random_number=rand(0,1);
+$empHrs;
 //echo "$random_number \t";
 if($random_number==$isPresent)
 {
