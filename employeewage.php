@@ -3,7 +3,6 @@ echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
 $isPresent=1;
 $isAbsent=2;
 $Employee_Wage_PerHour=20;
-$empHrs=0;
 $random_number=rand(0,2);
 //echo "$random_number \t";
 if($random_number==$isPresent)
@@ -19,6 +18,7 @@ elseif($random_number==$isAbsent)
 else
 {
     echo "EMPLOYEE IS ABSENT \n";
+    $empHrs=0;
 }
 $empWage=$Employee_Wage_PerHour*$empHrs;
 echo "$empWage";
