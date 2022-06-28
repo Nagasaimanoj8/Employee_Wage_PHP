@@ -13,6 +13,7 @@ if($random_number==$isPresent)
 else
 {
     echo "EMPLOYEE IS ABSENT \n";
+    $empHrs=0;
 }
 $empWage=$Employee_Wage_PerHour*$empHrs;
 echo "$empWage";
