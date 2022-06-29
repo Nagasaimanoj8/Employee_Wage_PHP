@@ -1,6 +1,7 @@
 <?php
 echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
 $Employee_Wage_PerHour=20;
+$empHrs;
 $random_number=rand(0,2);
 //echo "$random_number \t";
 switch($random_number){
@@ -14,6 +15,7 @@ switch($random_number){
     break;
     default:
         echo "EMPLOYEE IS ABSENT \n";
+        
     break;
 }
 $empWage=$Employee_Wage_PerHour*$empHrs;
