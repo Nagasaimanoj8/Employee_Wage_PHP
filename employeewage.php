@@ -6,7 +6,7 @@ $empHrs;
 $total_emp_Wage_Per_Month=0;
 $Num_of_Working_day=1;
 //echo "$random_number \t";
-while($Working_day<=$MAX_Employee_Working_Days_in_Month)
+while($Num_of_Working_day<=$MAX_Employee_Working_Days_in_Month)
 {
 $random_number=rand(0,2);
 switch($random_number){
@@ -22,10 +22,10 @@ switch($random_number){
         echo "EMPLOYEE IS ABSENT \n";
     break;
 }
-$Working_day++;
-$empWage=$Employee_Wage_PerHour*$empHrs;
-echo "$empWage \n";
-$total_emp_Wage_Per_Month+=$empWage;
+$Num_of_Working_day++;
+$daily_empWage=$Employee_Wage_PerHour*$empHrs;
+echo "$daily_empWage \n";
+$total_emp_Wage_Per_Month+=$daily_empWage;
 }
 echo "Wages For a Month is:"."$total_emp_Wage_Per_Month \n";
 ?>
