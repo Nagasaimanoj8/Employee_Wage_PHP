@@ -1,12 +1,12 @@
 <?php
 echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
 $Employee_Wage_PerHour=20;
-$Empoyee_Working_Days=20;
-$empHrs=0;
-$totalWage=0;
-$Working_day=1;
+$MAX_Employee_Working_Days_in_Month=20;
+$empHrs;
+$total_emp_Wage_Per_Month=0;
+$Num_of_Working_day=1;
 //echo "$random_number \t";
-while($Working_day<=$Empoyee_Working_Days)
+while($Working_day<=$MAX_Employee_Working_Days_in_Month)
 {
 $random_number=rand(0,2);
 switch($random_number){
@@ -25,7 +25,7 @@ switch($random_number){
 $Working_day++;
 $empWage=$Employee_Wage_PerHour*$empHrs;
 echo "$empWage \n";
-$totalWage+=$empWage;
+$total_emp_Wage_Per_Month+=$empWage;
 }
-echo "Wages For a Month is:"."$totalWage \n";
+echo "Wages For a Month is:"."$total_emp_Wage_Per_Month \n";
 ?>
