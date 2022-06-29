@@ -3,7 +3,7 @@ echo "WELCOME TO EMPLOYEE WAGE PROGRAM \n";
 $Employee_Wage_PerHour=20;
 $MAX_Employee_Working_Days_in_Month=20;
 $empHrs;
-$total_emp_Wage_Per_Month;
+$total_emp_Wage_Per_Month=0;
 $Num_of_Working_day=1;
 //echo "$random_number \t";
 while($Num_of_Working_day<=$MAX_Employee_Working_Days_in_Month)
