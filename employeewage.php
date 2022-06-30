@@ -2,7 +2,8 @@
 class Employeewage{
 public  $empHrs;
 //echo "$random_number \t";
-public function claculatemonthlywage($company,$Employee_Wage_PerHour,$MAX_Employee_Working_Days_in_Month,$Max_Emoloyee_Working_Hours){
+public function claculatemonthlywage($company,$Employee_Wage_PerHour,$MAX_Employee_Working_Days_in_Month,$Max_Emoloyee_Working_Hours)
+{
     $total_emp_Wage_Per_Month=0;
     $Num_of_Working_day=0;
     $total_Emp_WorkingHrs=0;
@@ -29,10 +30,10 @@ $daily_empWage=$Employee_Wage_PerHour*$empHrs;
 echo "$daily_empWage \n";
 $total_emp_Wage_Per_Month+=$daily_empWage;
 }
-echo "Wages For a Month is:"."$total_emp_Wage_Per_Month \n";
+echo "$company Wages For a Month is:"."$total_emp_Wage_Per_Month \n";
 }
 }
-$empwage=new Employeewage();
+$empwage=new Employeewage($company,$Employee_Wage_PerHour,$MAX_Employee_Working_Days_in_Month,$Max_Emoloyee_Working_Hours);
 $empwage->claculatemonthlywage("Sony",30,20,150);
 $empwage->claculatemonthlywage("Apple",20,10,100);
 ?>
