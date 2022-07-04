@@ -1,25 +1,13 @@
 <?php
-class Employeewage{
-public  $empHrs;
-public  $total_emp_Wage_Per_Month=0;
-public $Num_of_Working_day=0;
-public $total_Emp_WorkingHrs=0;
-public $Employee_Wage_PerHour=20;
-public $MAX_Employee_Working_Days_in_Month=20;
-public $Max_Emoloyee_Working_Hours=100;
-public $company;
-//echo "$random_number \t";
-public function __construct($company,$Employee_Wage_PerHour,$MAX_Employee_Working_Days_in_Month,$Max_Emoloyee_Working_Hours)
+class EmployeeWage
 {
-    $this->company= $company;
-    $this->Employee_Wage_PerHour= $Employee_Wage_PerHour;
-    $this->MAX_Employee_Working_Days_in_Month= $MAX_Employee_Working_Days_in_Month;
-    $this->Max_Emoloyee_Working_Hours= $Max_Emoloyee_Working_Hours;
-}
-public function claculatemonthlywage(){
-    while($this->Num_of_Working_day<=$this->MAX_Employee_Working_Days_in_Month && $this->total_Emp_WorkingHrs<=$this->Max_Emoloyee_Working_Hours)
-{
-    $random_number=rand(0,2);
+    public $isfulltime=1;
+     public $isparttime=2;   
+    public $empHrs;
+   
+    public function employeewagecalculation()
+{   
+      $random_number=rand(0,2);
 switch($random_number){
     case 1:
         echo "EMPLOYEE IS PRESENT WORK FOR FULL TIME \n" ;
@@ -34,19 +22,43 @@ switch($random_number){
         $this->empHrs=0;
     break;
 }
-$this->Num_of_Working_day++;
-$this->total_Emp_WorkingHrs+=$this->empHrs;
-$this->daily_empWage=$this->Employee_Wage_PerHour*$this->empHrs;
-echo "$this->daily_empWage \n";
-$this->total_emp_Wage_Per_Month+=$this->daily_empWage;
-}
-echo "$this->company Wages For a Month is:"."$this->total_emp_Wage_Per_Month \n";
+    return $this->empHrs;
 }
 }
-$empwage=new Employeewage("Sony",30,20,150);
-$empwage->claculatemonthlywage();
-$empwage=new Employeewage("Apple",20,10,100);
-$empwage->claculatemonthlywage();
-$empwage=new Employeewage("Dell",10,25,200);
-$empwage->claculatemonthlywage();
+class EmpWagebuilder extends EmployeeWage{
+    public $company;
+    public $Employee_Wage_PerHour;
+    public $MAX_Employee_Working_Days_in_Month;
+    public $Max_Emoloyee_Working_Hours;
+    public function __construct($company,$Employee_Wage_PerHour,$MAX_Employee_Working_Days_in_Month,$Max_Emoloyee_Working_Hours)
+    {
+            $this->company = $company;
+            $this->wagePerHour = $Employee_Wage_PerHour;
+            $this->workingDaysPerMonth = $MAX_Employee_Working_Days_in_Month;
+            $this->maxWorkingHours = $Max_Emoloyee_Working_Hours;    
+    }
+    public function calculateMonthlyWage(){
+        $Num_of_Working_day= 0;
+        $total_Emp_WorkingHrs = 0;
+        $total_emp_Wage_Per_Month = 0;
+        $obj = new EmployeeWage();
+        while($Num_of_Working_day <= $this->MAX_Employee_Working_Days_in_Month && $total_Emp_WorkingHrs <= $this->Max_Emoloyee_Working_Hours){
+            $empHrs = $obj->employeewagecalculation();
+            $total_Emp_WorkingHrs += $empHrs;
+            $Num_of_Working_day++;
+            $dailyEmpWage = $this->Employee_Wage_PerHour * $empHrs;
+            $total_emp_Wage_Per_Month += $dailyEmpWage;
+        }
+        echo $this->company . " "  . "Monthly Employee Wage :" . $total_emp_Wage_Per_Month . "\n";
+    }
+
+}
+ //Object
+    $company1 = new EmpWageBuilder("Jio", 50, 20, 120);
+    $company2 = new EmpWageBuilder("Airtel", 50, 25, 150);
+    $company3 = new EmpWageBuilder("Dell", 40, 22, 140);
+    $companyArray = [$company1, $company2, $company3];
+    for($i = 0; $i < count($companyArray); $i++){
+    echo $companyArray[$i]->calculateMonthlyWage();
+} 
 ?>
